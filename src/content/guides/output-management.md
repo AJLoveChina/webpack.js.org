@@ -210,7 +210,7 @@ __webpack.config.js__
       print: './src/print.js'
     },
     plugins: [
-+     new CleanWebpackPlugin(['dist']),
++     new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         title: 'Output Management'
       })
@@ -224,6 +224,9 @@ __webpack.config.js__
 
 现在执行 `npm run build`，再检查 `/dist` 文件夹。如果一切顺利，你现在应该不会再看到旧的文件，只有构建后生成的文件！
 
+T> 从clean-webpack-plugin 2.0版本开始无需任何配置即可开箱即用，默认清理webpack配置文件中`output.path`所指目录。如果使用webpack 4+'s，默认清理`<PROJECT_DIR>/dist/`。关于此变动的详细解释可参考这里[clean-webpack-plugin release 2.0](https://github.com/johnagan/clean-webpack-plugin/releases/tag/v2.0.0) 
+
+T> 如果你仍然使用1.x版本的clean-webpack-plugin，那么你需要指定清理的目录，例如：`new CleanWebpackPlugin(['dist'])`
 
 ## Manifest
 
